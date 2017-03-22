@@ -1,8 +1,8 @@
-defmodule Proj123.Mixfile do
+defmodule Exercises.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :proj123,
+    [app: :exercises,
      version: "0.1.0",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
@@ -28,6 +28,9 @@ defmodule Proj123.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:excheck, "~> 0.5", only: :test},
+      {:triq, github: "triqng/triq", only: :test}
+    ]
   end
 end
