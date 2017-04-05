@@ -18,11 +18,10 @@ defmodule SumMax2.Test do
     assert SumMax2.sum_max_2([3,-2,2,4,-3]) == 7
   end
 
-  @tag iterations: 10
+  @tag iterations: 200
   property :sum_max_2_random_lists do
-    for_all xs in list(pos_integer()) do
+    for_all xs in list(int()) do
       ln = length xs
-      IO.inspect(ln)
       implies (ln > 2) do
         sorted = Enum.reverse(Enum.sort(xs))
         expected = (hd sorted) + hd(tl sorted)

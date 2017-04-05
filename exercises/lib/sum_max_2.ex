@@ -9,7 +9,8 @@ defmodule SumMax2 do
       Enum.reduce(numbers, acc, fn(x, acc) ->
         cond do
           x <= Enum.fetch!(acc,0) && x <= Enum.fetch!(acc,1) -> acc
-          x > Enum.fetch!(acc,0) -> [x, Enum.fetch!(acc,0)]
+          x > Enum.fetch!(acc,0) && Enum.fetch!(acc,0) > Enum.fetch!(acc,1) -> [x, Enum.fetch!(acc,0)]
+          x > Enum.fetch!(acc,0) && Enum.fetch!(acc,0) < Enum.fetch!(acc,1) -> [x, Enum.fetch!(acc,1)]
           x > Enum.fetch!(acc,1) -> [Enum.fetch!(acc,0), x]
         end
       end), fn(x, acc) -> x + acc end
